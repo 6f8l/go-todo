@@ -1,6 +1,8 @@
 package testdb
 
-import
+import (
+	"database/sql"
+)
 
 const createTable = `
 DROP TABLE IF EXISTS todo;
@@ -34,7 +36,7 @@ func connectPostgresForTests() (*sql.DB, error) {
 	connStr := "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable"
 	db, err := sql.Open("postgres", connStr)
 
-	if err != nil{
+	if err != nil {
 		return nil, err
 	}
 
