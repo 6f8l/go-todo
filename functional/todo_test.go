@@ -12,7 +12,7 @@ import (
 func TestGetSamples(t *testing.T) {
 	testServer := setupServer()
 
-	req, err := http.NewRequest(http.MethodGet, "http://localhost:8080", nil)
+	req, err := http.NewRequest(http.MethodGet, "http://localhost:8080/samples", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -25,7 +25,7 @@ func TestGetSamples(t *testing.T) {
 	want := `[{"id":1,"title":"Do dishes","note":"","due_date":"2000-01-01T00:00:00Z"},{"id":2,"title":"Do homework","note":"","due_date":"2000-01-01T00:00:00Z"},{"id":2,"title":"Twitter","note":"","due_date":"2000-01-01T00:00:00Z"}]`
 
 	if got != want {
-		t.Fatal("want %v, Got: %v", want, got)
+		t.Fatalf("Want: %v, Got: %v", want, got)
 	}
 }
 
