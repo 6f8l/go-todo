@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"encoding/json"
 	"net/http"
 
 	"../db"
@@ -21,4 +22,21 @@ func (handler *todoHandler) GetSamples(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	responseOk(w, todoList)
+}
+
+func responseOk(w http.ResponseWrite, code int, message string) {
+	w.WriteHeader(code)
+	w.Header().Set("Content-Type", "application/json")
+
+	json.NewEncoder(w).Encode(body)
+}
+
+func responseError(w http.ResponseWriter, code int, message string) {
+	w.WriteHeader(code)
+	w.Header().Set("Content-Type", "application/json")
+
+	body := map[string]string{
+		"error": message,
+	}
+	json.NewEncoder(w).Encode(body)
 }
