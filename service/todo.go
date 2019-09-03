@@ -15,10 +15,10 @@ func Insert(ctx context.Context, todo *schema.Todo) (int, error) {
 	return db.Insert(ctx, todo)
 }
 
-func Delete(ctx contex.Context, id int) error {
+func Delete(ctx context.Context, id int) error {
 	return db.Delete(ctx, id)
 }
 
-func GetAll(ctx context.Context) ([]schema.Todo error) {
+func GetAll(ctx context.Context) ([]schema.Todo, error) {
 	return db.GetAll(ctx)
 }

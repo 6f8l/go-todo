@@ -15,7 +15,7 @@ type Repository interface { // interfaceはメソッドの型をまとめてお�
 	GetAll() ([]schema.Todo, error)
 }
 
-func SetRespository(ctx context.Context, repository Repository) context.Context {
+func SetRepository(ctx context.Context, repository Repository) context.Context {
 	return context.WithValue(ctx, keyRepository, repository)
 }
 
