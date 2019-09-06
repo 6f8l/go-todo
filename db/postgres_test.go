@@ -7,6 +7,7 @@ import (
 
 	"../schema"
 	"../testdb"
+	_ "github.com/lib/pq"
 )
 
 func TestPostgres_Insert(t *testing.T) {

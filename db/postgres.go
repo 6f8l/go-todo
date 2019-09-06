@@ -4,6 +4,7 @@ import (
 	"database/sql"
 
 	"../schema"
+	_ "github.com/lib/pq"
 )
 
 type Postgres struct {
